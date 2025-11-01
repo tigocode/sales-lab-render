@@ -1,8 +1,8 @@
-require('dotenv').config();
+require("dotenv").config();
 
 module.exports = {
   development: {
-    client: 'mysql2',
+    client: "mysql2",
     connection: {
       host: process.env.DB_HOST,
       port: process.env.DB_PORT || 3306,
@@ -12,25 +12,30 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-      directory: 'src/connection/migrations',
+      directory: "src/connection/migrations",
     },
     seeds: {
-      directory: 'src/connection/seeds',
+      directory: "src/connection/seeds",
     },
   },
 
   production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
+    client: "pg",
+    connection: {
+      connectionString: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false, // necessário para Render
+      },
+    },
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      directory: 'src/connection/migrations',
+      directory: "src/connection/migrations",
     },
     seeds: {
-      directory: 'src/connection/seeds',
+      directory: "src/connection/seeds",
     },
   },
 };
