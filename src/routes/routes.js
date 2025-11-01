@@ -10,6 +10,10 @@ const register = require('../controllers/register.controller');
 const license = require('../controllers/license.controller');
 const send = require('../controllers/watlab.controller');
 
+router.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date() });
+});
+
 router.post('/users', users.Create);
 router.get('/users/:user_id', users.Index);
 router.patch('/users/:user_id', users.Update);
