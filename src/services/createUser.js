@@ -17,7 +17,7 @@ const registerUser = async (nome, telefone, email, user, password, company) => {
       password,
       token
     })
-    .returning('id_user');
+    .returning('id');
 
   return createUser[0];
 }
