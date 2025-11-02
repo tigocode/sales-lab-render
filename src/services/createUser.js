@@ -19,7 +19,7 @@ const registerUser = async (nome, telefone, email, user, password, company) => {
     })
     .returning('id_user');
 
-  return createUser;
+  return createUser[0];
 }
 
 module.exports = {
