@@ -50,7 +50,7 @@ module.exports = {
         company
       );
       
-      const id_user = resultInsert[0];
+      const id_user = resultInsert;
       // Check if the user exists
       const checkId = await UserLicenseAlreadyExist(id_user);
 
